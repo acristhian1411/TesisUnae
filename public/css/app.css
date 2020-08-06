@@ -1,0 +1,179 @@
+.image-table {
+  width: 64px;
+  height: 64px;
+}
+
+.image-profile {
+  width: 100px;
+  height: 100px;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0px;
+}
+
+.textField {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 30%;
+}
+
+.react-select1 {
+  margin: 8px;
+  width: 30%;
+  float: left;
+}
+
+.css-yk16xz-control {
+  height: 56px;
+}
+
+.css-1pahdxg-control {
+  height: 56px;
+}
+
+.paper {
+  background-color: white;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 50px;
+  padding: 20px 40px 30px;
+  width: 80%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+.small_paper {
+  background-color: white;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 50px;
+  padding: 20px 40px 30px;
+  width: 40%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+.dropz {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 225px;
+  height: 225px;
+  border-radius: 5px;
+  float: right;
+}
+
+.buttons {
+  float: right;
+}
+
+.divisor {
+  margin-left: 20px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  width: 100%;
+  position: absolute;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  font-weight: bold;
+  visibility: hidden;
+  width: 120px;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  /* Position the tooltip */
+  top: -10px;
+  left: 105%;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.card_person {
+  margin: auto;
+  margin-left: 20px;
+  width: 300px;
+  height: 100%;
+  background-color: #eaeaea;
+  box-shadow: 4px 10px 14px -5px;
+  float: left;
+}
+
+.card_person1 {
+  margin: auto;
+  margin-left: 20px;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 4px 10px 14px -5px;
+  float: left;
+}
+
+.profile_photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.card_label_field {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.title_column {
+  color: #222;
+  margin: 0px;
+  font-size: 13px;
+}
+
+.value_column {
+  font-size: 18px;
+  margin: 0px;
+  font-weight: bold;
+}
+
+.select-ciudades {
+  width: 100%;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.pagination {
+  width: 100%;
+  margin: auto;
+  padding: 16px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+

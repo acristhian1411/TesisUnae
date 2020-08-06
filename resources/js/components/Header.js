@@ -180,12 +180,13 @@
       <Collapse in={open2} timeout="auto" unmountOnExit>
       <List component="div" disablePadding>
 
-       <Link className='navbar-brand' to='/'>
+       <Link className='navbar-brand' to='/cargos'>
       <ListItem button >
         <ListItemIcon>
          {<ListIcon />}
          </ListItemIcon>
-         Tipos de Perfil
+         Cargos
+
       </ListItem>
       </Link>
 
@@ -228,14 +229,16 @@
         </List>
 
       </Drawer>
-        <main
-                className={clsx(classes.content, {
-                  [classes.contentShift]: open,
-                })}
-              >
-                <div className={classes.drawerHeader} />
-            <Routes />
-              </main>
+
+      <main className={clsx(classes.content, {
+        [classes.contentShift]: open,
+      })}>
+              <div className={classes.toolbar} />
+              <Routes />
+
+            </main>
+
+
 
 
         </div>

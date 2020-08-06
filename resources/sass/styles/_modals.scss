@@ -1,0 +1,64 @@
+.modal{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border: 0px;
+ }
+.textField{
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 30%;
+
+}
+.react-select1 {
+  margin: 8px;
+  width: 30%;
+  float: left;
+}
+
+.css-yk16xz-control{
+  height: 56px;
+}
+.css-1pahdxg-control{
+ height: 56px;
+}
+
+.paper{
+  background-color: white;
+  border: 1px solid #000;
+  border-radius:10px;
+  box-shadow: 50px;
+  padding: 20px 40px 30px;
+  width: 80%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+.small_paper{
+  background-color: white;
+  border: 1px solid #000;
+  border-radius:10px;
+  box-shadow: 50px;
+  padding: 20px 40px 30px;
+  width: 40%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+.dropz{
+
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 225px;
+  height: 225px;
+  border-radius: 5px;
+  float: right;
+}
+.buttons{
+  float: right;
+}
+.divisor{
+  margin-left: 20px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  width: 100%;
+  position: absolute;
+}
