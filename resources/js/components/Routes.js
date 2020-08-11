@@ -3,6 +3,9 @@ import React, { Component} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //
 import AppointmentsList from './Appointments/AppointmentsList';
+import BrandsList from './Brands/BrandsList';
+import CategoriesList from './Categories/CategoriesList';
+import SubCategoriesList from './SubCategories/SubCategoriesList';
 
 
 class Routes extends Component {
@@ -12,6 +15,9 @@ class Routes extends Component {
         <div>
           <Switch>
           <Route exact path='/cargos' component={AppointmentsList} />
+          <Route exact path='/marcas' component={BrandsList} />
+          <Route exact path='/categorias' component={CategoriesList} />
+          <Route exact path='/subcategorias' component={SubCategoriesList} />
 
           </Switch>
         </div>

@@ -6,7 +6,7 @@
             Typography, Divider, IconButton, ListItem,
             ListItemIcon, ListItemText
             } from '@material-ui/core';
-
+import SettingsIcon from '@material-ui/icons/Settings';
     import MenuIcon from '@material-ui/icons/Menu';
     import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
     import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -170,29 +170,7 @@
      </ListItem>
      </Link>
 
-     <ListItem button onClick={handleClick}>
-      <ListItemIcon>
-        <SchoolIcon />
-      </ListItemIcon>
-      <ListItemText primary="Academica" />
-      {open2 ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-      <Collapse in={open2} timeout="auto" unmountOnExit>
-      <List component="div" disablePadding>
 
-       <Link className='navbar-brand' to='/cargos'>
-      <ListItem button >
-        <ListItemIcon>
-         {<ListIcon />}
-         </ListItemIcon>
-         Cargos
-
-      </ListItem>
-      </Link>
-
-
-      </List>
-      </Collapse>
 
 
       <ListItem button onClick={handleClick3}>
@@ -206,6 +184,23 @@
 
       <List component="div" disablePadding>
 
+      <Link className='navbar-brand' to='/marcas'>
+      <ListItem button >
+       <ListItemIcon>
+        {<ListIcon />}
+        </ListItemIcon>
+        Marcas
+      </ListItem>
+      </Link>
+
+      <Link className='navbar-brand' to='/categorias'>
+      <ListItem button >
+       <ListItemIcon>
+        {<ListIcon />}
+        </ListItemIcon>
+        Categorias
+      </ListItem>
+      </Link>
 
       </List>
 
@@ -225,6 +220,28 @@
 
       </List>
       </Collapse>
+
+
+      <ListItem button onClick={handleClick}>
+       <ListItemIcon>
+         <SettingsIcon />
+       </ListItemIcon>
+       <ListItemText primary="Configuraciones" />
+       {open2 ? <ExpandLess /> : <ExpandMore />}
+       </ListItem>
+       <Collapse in={open2} timeout="auto" unmountOnExit>
+       <List component="div" disablePadding>
+
+        <Link className='navbar-brand' to='/cargos'>
+       <ListItem button >
+         <ListItemIcon>
+          {<ListIcon />}
+          </ListItemIcon>
+          Cargos
+       </ListItem>
+       </Link>
+       </List>
+       </Collapse>
 
         </List>
 

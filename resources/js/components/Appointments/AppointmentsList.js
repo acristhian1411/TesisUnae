@@ -89,7 +89,7 @@
         this.getObject = async(perPage, page, orderBy=this.state.orderBy, order=this.state.order) =>{
            let res = await axios.get(`/api/appointments?sort_by=${orderBy}&order=${order}&per_page=${perPage}&page=${page}`);
            let data = await res.data;
-           this.setState({appointments: data, paginator:data, filteredappointments: data.data,  open:false, page_lenght: res.data.last_page});
+           this.setState({appointments: data, paginator:data, filteredappointments: data.data,  open:false, page_lenght: res.data.last_page, page: res.data.current_page});
       }
 
         this.updateState= () =>{
@@ -135,15 +135,15 @@
         // console.log(param);
         this.setState({snack_open: true, message_success: param});
       }
-     perPageChange(value){
-       // console.log(value);
-       this.setState({rowsPerPage: value, page: 1});
-       this.getObject(value, 1);
-     }
-     pageChange(value){
-       this.setState({page: 1, page: 1});
-       this.getObject(this.state.rowsPerPage, value);
-     }
+      perPageChange(value){
+        // console.log(value);
+        this.setState({rowsPerPage: value, prevActiveStep: 1, page: 1});
+        this.getObject(value, 1);
+      }
+      pageChange(value){
+        this.setState({prevActiveStep: value, page: value});
+        this.getObject(this.state.rowsPerPage, value);
+      }
       searchChange(e){
           this.setState({search:e.value});
         }
@@ -291,6 +291,8 @@
                            lenght={this.state.page_lenght}
                            perPageChange= {this.perPageChange}
                            pageChange ={this.pageChange}
+                           page= {this.state.page}
+                           
                            />
                            {showModal}
                            {showDialogDestroy}

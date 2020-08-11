@@ -57,4 +57,11 @@ class AppointmentController extends ApiController
               'message' => 'Cargo se elimino con exito!'
           ]);
         }
+    public function search($request)
+    {
+        $dato = Appointment::where('appoin_description', '=', $request )
+        ->get();
+        return $this->showAll($dato,200);
+
+      }
 }
