@@ -1,4 +1,4 @@
-    import ModalForm from './ModalForm';
+    import SubsubcategoryForm from './SubsubcategoryForm';
     import MidModal from '../Modals/MidModal';
     import React, { Component,lazy} from 'react';
     import DialogDestroy from '../Dialogs/DialogDestroy';
@@ -164,7 +164,7 @@
             });
           }
           else {
-            axios.get(`/api/subcategories?sub_cat_descrip=${e.target.value}`).then(res=>{
+            axios.get(`/api/subcategories/search/${e.target.value}`).then(res=>{
               this.setState({
                 filteredsubcategories: res.data.data,
                 paginator: res.data,
@@ -229,19 +229,19 @@
         var showSnack;
         const {snack_open, message_success, open, subcategory, orderBy, order} = this.state;
        if (this.state.new) {
-        // showModal = <ModalForm edit={false} onHandleSubmit={this.updateState}/>
+        // showModal = <SubsubcategoryForm edit={false} onHandleSubmit={this.updateState}/>
         showModal = <MidModal >
                       {{onHandleSubmit: this.updateState,
-                        form: <ModalForm />,
+                        form: <SubsubcategoryForm />,
                         props_form: {onSuccess:this.openSnack}
                       }}
                     </ MidModal>
       }
        else if (this.state.edit) {
-         // showModal = <ModalForm edit={true} onHandleSubmit={this.updateState} subcategory={this.state.subcategory}/>
+         // showModal = <SubsubcategoryForm edit={true} onHandleSubmit={this.updateState} subcategory={this.state.subcategory}/>
          showModal = <MidModal >
                        {{onHandleSubmit: this.updateState,
-                         form: <ModalForm />,
+                         form: <SubsubcategoryForm />,
                          props_form: {edit: true, subcategory:this.state.subcategory, onSuccess:this.openSnack}
                        }}
                      </ MidModal>

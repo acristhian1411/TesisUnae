@@ -48,3 +48,28 @@ Route::get('subcategories/search/{req}', 'SubCategory\SubCategoryController@sear
 Route::post('subcategories/', 'SubCategory\SubCategoryController@store');
 Route::put('subcategories/{id}','SubCategory\SubCategoryController@update');
 Route::delete('subcategories/{id}','SubCategory\SubCategoryController@destroy');
+
+//rutas de Proveedores
+Route::get('providers/', 'Provider\ProviderController@index');
+Route::get('providers/{id}', 'Provider\ProviderController@show');
+Route::get('providers/search/{req}', 'Provider\ProviderController@search');
+Route::post('providers/', 'Provider\ProviderController@store');
+Route::put('providers/{id}','Provider\ProviderController@update');
+Route::delete('providers/{id}','Provider\ProviderController@destroy');
+
+//rutas de Ciudades
+Route::get('cities/', 'City\CityController@index');
+Route::get('cities/{id}', 'City\CityController@show');
+Route::get('cities/search/{req}', 'City\CityController@search');
+Route::post('cities/', 'City\CityController@store');
+Route::put('cities/{id}','City\CityController@update');
+Route::delete('cities/{id}','City\CityController@destroy');
+
+//rutas de Barrios
+Route::get('districts/', 'District\DistrictController@index');
+Route::get('districts/{id}', 'District\DistrictController@show');
+Route::get('districts/select/{id}', 'District\DistrictController@showSelect');
+Route::get('districts/search/{req}', 'District\DistrictController@search');
+Route::post('districts/', 'District\DistrictController@store');
+Route::put('districts/{id}','District\DistrictController@update');
+Route::delete('districts/{id}','District\DistrictController@destroy');

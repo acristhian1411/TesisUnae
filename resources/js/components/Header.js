@@ -202,6 +202,14 @@ import SettingsIcon from '@material-ui/icons/Settings';
       </ListItem>
       </Link>
 
+      <Link className='navbar-brand' to='/subcategorias'>
+      <ListItem button >
+       <ListItemIcon>
+        {<ListIcon />}
+        </ListItemIcon>
+        SubCategorias
+      </ListItem>
+      </Link>
       </List>
 
       </Collapse>

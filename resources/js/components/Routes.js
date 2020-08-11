@@ -6,6 +6,10 @@ import AppointmentsList from './Appointments/AppointmentsList';
 import BrandsList from './Brands/BrandsList';
 import CategoriesList from './Categories/CategoriesList';
 import SubCategoriesList from './SubCategories/SubCategoriesList';
+import CitiesList from './Cities/CitiesList';
+import DistricsList from './Districts/DistricsList';
+import ProvidersList from './Providers/ProvidersList';
+import ProviderShow from './Providers/ProviderShow';
 
 
 class Routes extends Component {
@@ -18,6 +22,10 @@ class Routes extends Component {
           <Route exact path='/marcas' component={BrandsList} />
           <Route exact path='/categorias' component={CategoriesList} />
           <Route exact path='/subcategorias' component={SubCategoriesList} />
+          <Route exact path='/ciudades' component={CitiesList} />
+          <Route exact path='/barrios' component={DistricsList} />
+          <Route exact path='/proveedores' component={ProvidersList} />
+          <Route exact path='/proveedores/show/:id' component={ProviderShow} />
 
           </Switch>
         </div>

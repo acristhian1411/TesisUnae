@@ -1,4 +1,4 @@
-    import ModalForm from './ModalForm';
+    import BrandForm from './BrandForm';
     import MidModal from '../Modals/MidModal';
     import React, { Component,lazy} from 'react';
     import DialogDestroy from '../Dialogs/DialogDestroy';
@@ -229,19 +229,19 @@
         var showSnack;
         const {snack_open, message_success, open, brand, orderBy, order} = this.state;
        if (this.state.new) {
-        // showModal = <ModalForm edit={false} onHandleSubmit={this.updateState}/>
+        // showModal = <BrandForm edit={false} onHandleSubmit={this.updateState}/>
         showModal = <MidModal >
                       {{onHandleSubmit: this.updateState,
-                        form: <ModalForm />,
+                        form: <BrandForm />,
                         props_form: {onSuccess:this.openSnack}
                       }}
                     </ MidModal>
       }
        else if (this.state.edit) {
-         // showModal = <ModalForm edit={true} onHandleSubmit={this.updateState} brand={this.state.brand}/>
+         // showModal = <BrandForm edit={true} onHandleSubmit={this.updateState} brand={this.state.brand}/>
          showModal = <MidModal >
                        {{onHandleSubmit: this.updateState,
-                         form: <ModalForm />,
+                         form: <BrandForm />,
                          props_form: {edit: true, brand:this.state.brand, onSuccess:this.openSnack}
                        }}
                      </ MidModal>

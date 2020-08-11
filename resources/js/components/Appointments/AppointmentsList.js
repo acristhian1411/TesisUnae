@@ -1,4 +1,4 @@
-    import ModalForm from './ModalForm';
+    import AppointmentForm from './AppointmentForm';
     import MidModal from '../Modals/MidModal';
     import React, { Component,lazy} from 'react';
     import DialogDestroy from '../Dialogs/DialogDestroy';
@@ -7,7 +7,7 @@
       TablePagination, Paper, TextField, MobileStepper,
       Select, MenuItem, TableSortLabel,TableFooter, InputBase,
       InputLabel, Tooltip, Snackbar} from '@material-ui/core';
-    // const ModalForm = lazy(()=> import('./ModalForm'));
+    // const AppointmentForm = lazy(()=> import('./AppointmentForm'));
     import { Alert } from '@material-ui/lab';
     import { Link } from 'react-router-dom';
     import DeleteIcon from '@material-ui/icons/Delete';
@@ -229,19 +229,19 @@
         var showSnack;
         const {snack_open, message_success, open, appointment, orderBy, order} = this.state;
        if (this.state.new) {
-        // showModal = <ModalForm edit={false} onHandleSubmit={this.updateState}/>
+        // showModal = <AppointmentForm edit={false} onHandleSubmit={this.updateState}/>
         showModal = <MidModal >
                       {{onHandleSubmit: this.updateState,
-                        form: <ModalForm />,
+                        form: <AppointmentForm />,
                         props_form: {onSuccess:this.openSnack}
                       }}
                     </ MidModal>
       }
        else if (this.state.edit) {
-         // showModal = <ModalForm edit={true} onHandleSubmit={this.updateState} appointment={this.state.appointment}/>
+         // showModal = <AppointmentForm edit={true} onHandleSubmit={this.updateState} appointment={this.state.appointment}/>
          showModal = <MidModal >
                        {{onHandleSubmit: this.updateState,
-                         form: <ModalForm />,
+                         form: <AppointmentForm />,
                          props_form: {edit: true, appointment:this.state.appointment, onSuccess:this.openSnack}
                        }}
                      </ MidModal>
@@ -292,7 +292,7 @@
                            perPageChange= {this.perPageChange}
                            pageChange ={this.pageChange}
                            page= {this.state.page}
-                           
+
                            />
                            {showModal}
                            {showDialogDestroy}

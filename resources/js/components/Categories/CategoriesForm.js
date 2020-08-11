@@ -4,6 +4,7 @@ import {Modal, Backdrop, Fade, InputLabel, TextField, Button} from '@material-ui
 import { withRouter } from "react-router-dom";
 import SaveIcon from '@material-ui/icons/Save';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import validator from'../validator/validator';
 
 const styles = theme => ({
   modal: {
