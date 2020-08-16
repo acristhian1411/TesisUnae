@@ -16,6 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//rutas de Productos
+Route::get('products/', 'Product\ProductController@index');
+Route::get('products/{id}', 'Product\ProductController@show');
+Route::get('products/search/{req}', 'Product\ProductController@search');
+Route::post('products/', 'Product\ProductController@store');
+Route::put('products/{id}','Product\ProductController@update');
+Route::delete('products/{id}','Product\ProductController@destroy');
 
 //rutas de Cargos
 Route::get('appointments/', 'Appointment\AppointmentController@index');
@@ -44,6 +51,7 @@ Route::delete('categories/{id}','Category\CategoryController@destroy');
 //rutas de SubCategorias
 Route::get('subcategories/', 'SubCategory\SubCategoryController@index');
 Route::get('subcategories/{id}', 'SubCategory\SubCategoryController@show');
+Route::get('subcategories/select/{id}', 'SubCategory\SubCategoryController@showSelect');
 Route::get('subcategories/search/{req}', 'SubCategory\SubCategoryController@search');
 Route::post('subcategories/', 'SubCategory\SubCategoryController@store');
 Route::put('subcategories/{id}','SubCategory\SubCategoryController@update');

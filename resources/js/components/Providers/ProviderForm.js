@@ -375,7 +375,7 @@ if (this.state.snack_open){
   <Grid container spacing={1}>
   <Grid container item xs={20} spacing={2}>
   <Grid item xs={6}>
-  <Autocomplete
+                      <Autocomplete
                         id="combo-box-demo"
                         disableClearable
                         options={this.City()}

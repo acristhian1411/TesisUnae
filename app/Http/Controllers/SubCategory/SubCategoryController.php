@@ -36,6 +36,14 @@ class SubCategoryController extends ApiController
     return $this->showOne($dato,200);
   }
 
+  public function showSelect($id)
+  {
+    //$dato = SubCategory::find( $id);
+    $dato = SubCategory::where( 'cat_id', '=', $id)
+                              ->get();
+    return $this->showAll($dato,200);
+  }
+
   public function update(Request $request, $id)
   {
     $dato = SubCategory::findOrFail( $id);

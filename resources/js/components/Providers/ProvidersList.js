@@ -322,11 +322,14 @@
               <TableCell>{data.business_name}</TableCell>
                 <TableCell>{data.ruc}</TableCell>
                 <TableCell>
+                <Tooltip title='Mostrar'>
+
                             <Link className='navbar-brand'to={"/proveedores/show/"+ data.person_id}>
                               <Button variant="outlined" color="primary" startIcon={< VisibilityIcon />} >{' '}</Button>
                             </Link>
+                            </Tooltip>
                           </TableCell>
-                <TableCell>
+                          <TableCell>
                 <Tooltip title='Editar'>
                   <Button variant="outlined" color="primary" startIcon={< EditIcon />} type='submit' onClick={()=>{this.clickEditar({data: data})}} >{' '}</Button>
                   </Tooltip>

@@ -225,6 +225,14 @@ import SettingsIcon from '@material-ui/icons/Settings';
       <Collapse in={open3} timeout="auto" unmountOnExit>
       <List component="div" disablePadding>
 
+      <Link className='navbar-brand' to='/proveedores'>
+      <ListItem button >
+       <ListItemIcon>
+        {<ListIcon />}
+        </ListItemIcon>
+        Proveedores
+      </ListItem>
+      </Link>
 
       </List>
       </Collapse>

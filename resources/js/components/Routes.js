@@ -8,6 +8,8 @@ import CategoriesList from './Categories/CategoriesList';
 import SubCategoriesList from './SubCategories/SubCategoriesList';
 import CitiesList from './Cities/CitiesList';
 import DistricsList from './Districts/DistricsList';
+import ProductsList from './Products/ProductsList';
+import ProductShow from './Products/ProductShow';
 import ProvidersList from './Providers/ProvidersList';
 import ProviderShow from './Providers/ProviderShow';
 
@@ -18,6 +20,8 @@ class Routes extends Component {
 
         <div>
           <Switch>
+          <Route exact path='/productos' component={ProductsList} />
+          <Route exact path='/productos/show/:id' component={ProductShow} />
           <Route exact path='/cargos' component={AppointmentsList} />
           <Route exact path='/marcas' component={BrandsList} />
           <Route exact path='/categorias' component={CategoriesList} />
