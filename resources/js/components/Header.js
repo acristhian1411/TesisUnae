@@ -23,7 +23,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
     import clsx from 'clsx';
     import Routes from './Routes';
     import InboxIcon from '@material-ui/icons/MoveToInbox';
-
+    import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
     const drawerWidth = 240;
 
     const useStyles = makeStyles((theme) => ({
@@ -95,6 +95,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
    const [open2, setOpen2] = React.useState(false);
    const [open3, setOpen3] = React.useState(false);
    const [open4, setOpen4] = React.useState(false);
+   const [open5, setOpen5] = React.useState(false);
 
    const handleDrawerOpen = () => {
      setOpen(true);
@@ -106,7 +107,9 @@ import SettingsIcon from '@material-ui/icons/Settings';
    const handleClick = () => {
       setOpen2(!open2);
     };
-
+    const handleClick1 = () => {
+       setOpen5(!open5);
+     };
     const handleClick2 = () => {
        setOpen3(!open3);
      };
@@ -184,6 +187,30 @@ import SettingsIcon from '@material-ui/icons/Settings';
 
       <List component="div" disablePadding>
 
+      <Link className='navbar-brand' to='/sucursales'>
+      <ListItem button >
+       <ListItemIcon>
+        {<ListIcon />}
+        </ListItemIcon>
+        Sucursales
+      </ListItem>
+      </Link>
+
+      </List>
+
+      </Collapse>
+
+
+      <ListItem button onClick={handleClick1}>
+      <ListItemIcon>
+      <ShoppingCartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Productos" />
+      {open5 ? <ExpandLess /> : <ExpandMore />}
+      </ListItem>
+      <Collapse in={open5} timeout="auto" unmountOnExit>
+      <List component="div" disablePadding>
+
       <Link className='navbar-brand' to='/marcas'>
       <ListItem button >
        <ListItemIcon>
@@ -210,10 +237,18 @@ import SettingsIcon from '@material-ui/icons/Settings';
         SubCategorias
       </ListItem>
       </Link>
+
+      <Link className='navbar-brand' to='/productos'>
+      <ListItem button >
+       <ListItemIcon>
+        {<ListIcon />}
+        </ListItemIcon>
+        Productos
+      </ListItem>
+      </Link>
+
       </List>
-
       </Collapse>
-
 
       <ListItem button onClick={handleClick2}>
       <ListItemIcon>

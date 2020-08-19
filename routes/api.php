@@ -16,6 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//rutas de Sucursales
+Route::get('branches/', 'Branch\BranchController@index');
+Route::get('branches/{id}', 'Branch\BranchController@show');
+Route::get('branches/search/{req}', 'Branch\BranchController@search');
+Route::post('branches/', 'Branch\BranchController@store');
+Route::put('branches/{id}','Branch\BranchController@update');
+Route::delete('branches/{id}','Branch\BranchController@destroy');
+
 //rutas de Productos
 Route::get('products/', 'Product\ProductController@index');
 Route::get('products/{id}', 'Product\ProductController@show');

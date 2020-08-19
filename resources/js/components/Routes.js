@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //
 import AppointmentsList from './Appointments/AppointmentsList';
 import BrandsList from './Brands/BrandsList';
+import BranchList from './Branch/BranchList';
 import CategoriesList from './Categories/CategoriesList';
 import SubCategoriesList from './SubCategories/SubCategoriesList';
 import CitiesList from './Cities/CitiesList';
@@ -21,6 +22,7 @@ class Routes extends Component {
         <div>
           <Switch>
           <Route exact path='/productos' component={ProductsList} />
+          <Route exact path='/sucursales' component={BranchList} />
           <Route exact path='/productos/show/:id' component={ProductShow} />
           <Route exact path='/cargos' component={AppointmentsList} />
           <Route exact path='/marcas' component={BrandsList} />
