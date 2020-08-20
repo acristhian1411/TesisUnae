@@ -52,6 +52,7 @@ const styles = theme => ({
       business_name:'',
       prod_descrip:'',
       prod_iva: 0,
+      stock_min: 0,
       prod_iva2: '',
       prod_sale_price:null,
       modal_sub_category: false,
@@ -62,6 +63,10 @@ const styles = theme => ({
       providers: [],
       brands: [],
       validator: {
+        stock_min:{
+          message:'',
+          error: false,
+        },
         prod_iva:{
           message:'',
           error: false,
@@ -133,6 +138,7 @@ this.setState({
   prod_descrip: this.props.product.data.prod_descrip,
   prod_iva: this.props.product.data.prod_iva,
   prod_sale_price: this.props.product.data.prod_sale_price,
+  stock_min: this.props.product.data.stock_min,
 })
 if (this.props.product.data.prod_iva === 5) {
   this.setState({
@@ -205,14 +211,15 @@ fieldsChange(e){
 
 handleCreateObject (e) {
   e.preventDefault();
-  var {prod_iva, sub_cat_id, brand_id, person_id, prod_sale_price, prod_descrip} = this.state;
+  var {prod_iva, sub_cat_id, brand_id, person_id, prod_sale_price, stock_min, prod_descrip} = this.state;
   var validator = {
     prod_iva: {error: false,  message: ''},
     prod_sale_price: {error: false,  message: ''},
     prod_descrip: {error: false,  message: ''},
     person_id: {error: false,  message: ''},
     sub_cat_id: {error: false,  message: ''},
-    brand_id: {error: false,  message: ''}
+    brand_id: {error: false,  message: ''},
+    stock_min: {error: false,  message: ''}
 };
   var object_error = {};
   const object = {
@@ -222,10 +229,11 @@ handleCreateObject (e) {
     person_id: this.state.person_id,
     brand_id: this.state.brand_id,
     sub_cat_id: this.state.sub_cat_id,
+    stock_min: this.state.sub_cat_id,
     }
     axios.post('api/products', {prod_iva:object.prod_iva, sub_cat_id:object.sub_cat_id,
       prod_sale_price:object.prod_sale_price, person_id:object.person_id,
-    prod_descrip:object.prod_descrip, brand_id:object.brand_id})
+    prod_descrip:object.prod_descrip, brand_id:object.brand_id, stock_min:object.stock_min})
       .then(res => {
         this.props.onSuccess(res.data);
         this.props.changeAtribute(false);
@@ -471,7 +479,7 @@ if (this.state.snack_open){
                                    </Grid>
 
                                    <Grid container item xs={20} spacing={2}>
-                                   <Grid item xs={12}>
+                                   <Grid item xs={6}>
                                    <TextField
                                     id="outlined-full-width"
                                     label="Descripcion"
@@ -485,8 +493,27 @@ if (this.state.snack_open){
                                     margin="normal"
                                     variant="outlined"
                                   />
-                                </Grid>
-                                </Grid>
+                                   </Grid>
+                                   <Grid item xs={6}>
+
+                                   <TextField
+                                    id="outlined-full-width"
+                                    label="Stock minimo"
+                                    type="number"
+                                    name="stock_min"
+                                    error={this.state.validator.stock_min.error}
+                                    helperText={this.state.validator.stock_min.message}
+                                    style={{ margin: 8 }}
+                                    value={this.state.stock_min}
+                                    onChange={this.fieldsChange.bind(this)}
+                                    fullWidth
+                                    margin="normal"
+                                    variant="outlined"
+                                  />
+                                   </Grid>
+                                   </Grid>
+
+
 
                                    <Grid container item xs={20} spacing={2}>
                                    <Grid item xs={6}>

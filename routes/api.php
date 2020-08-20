@@ -26,6 +26,7 @@ Route::delete('branches/{id}','Branch\BranchController@destroy');
 
 //rutas de Productos
 Route::get('products/', 'Product\ProductController@index');
+Route::get('products-stock/{id}', 'Product\ProductController@productsPerBranch');
 Route::get('products/{id}', 'Product\ProductController@show');
 Route::get('products/search/{req}', 'Product\ProductController@search');
 Route::post('products/', 'Product\ProductController@store');
