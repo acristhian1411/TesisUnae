@@ -13,6 +13,7 @@ import ProductsList from './Products/ProductsList';
 import ProductShow from './Products/ProductShow';
 import ProvidersList from './Providers/ProvidersList';
 import ProviderShow from './Providers/ProviderShow';
+import BuysList from './Buys/BuysList';
 
 
 class Routes extends Component {
@@ -21,6 +22,7 @@ class Routes extends Component {
 
         <div>
           <Switch>
+          <Route exact path='/compras' component={BuysList} />
           <Route exact path='/productos' component={ProductsList} />
           <Route exact path='/sucursales' component={BranchList} />
           <Route exact path='/productos/show/:id' component={ProductShow} />
