@@ -16,6 +16,23 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//rutas de Compras
+Route::get('buys/', 'Buy\BuyController@index');
+Route::get('buys/{id}', 'Buy\BuyController@show');
+Route::get('buys/search/{req}', 'Buy\BuyController@search');
+Route::post('buys/', 'Buy\BuyController@store');
+Route::put('buys/{id}','Buy\BuyController@update');
+Route::delete('buys/{id}','Buy\BuyController@destroy');
+
+//rutas de Detalles de Compras
+Route::get('buy_details/', 'BuyDetails\BuyDetailsController@index');
+Route::get('buy_details/{id}', 'BuyDetails\BuyDetailsController@show');
+Route::get('buy_details-per-buy/{id}', 'BuyDetails\BuyDetailsController@BuyDetailsPerBuy');
+Route::get('buy_details/search/{req}', 'BuyDetails\BuyDetailsController@search');
+Route::post('buy_details/', 'BuyDetails\BuyDetailsController@store');
+Route::put('buy_details/{id}','BuyDetails\BuyDetailsController@update');
+Route::delete('buy_details/{id}','BuyDetails\BuyDetailsController@destroy');
+
 //rutas de Sucursales
 Route::get('branches/', 'Branch\BranchController@index');
 Route::get('branches/{id}', 'Branch\BranchController@show');
