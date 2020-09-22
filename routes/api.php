@@ -16,6 +16,16 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//rutas de Transferencias de productos
+Route::get('prod_transfers/', 'ProductTransfer\ProductTransferController@index');
+Route::get('prod_transfers/{id}', 'ProductTransfer\ProductTransferController@show');
+Route::get('prod_transfers/search/{req}', 'ProductTransfer\ProductTransferController@search');
+Route::post('prod_transfers/', 'ProductTransfer\ProductTransferController@store');
+Route::put('prod_transfers/{id}','ProductTransfer\ProductTransferController@update');
+Route::delete('prod_transfers/{id}','ProductTransfer\ProductTransferController@destroy');
+
+
 //rutas de Compras
 Route::get('buys/', 'Buy\BuyController@index');
 Route::get('buys/{id}', 'Buy\BuyController@show');

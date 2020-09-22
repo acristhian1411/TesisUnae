@@ -154,11 +154,9 @@
         this.setState({snack_open: false});
       }
       openSnack(param){
-        // console.log(param);
         this.setState({snack_open: true, message_success: param});
       }
       perPageChange(value){
-        // console.log(value);
         this.setState({rowsPerPage: value, prevActiveStep: 1, page: 1});
         this.getObject(value, 1);
       }
@@ -246,10 +244,11 @@
       }
 
       render () {
+        var paginator;
         var showModal;
         var showDialogDestroy;
         var showSnack;
-        const {snack_open, message_success, open, product, orderBy, order} = this.state;
+        const {snack_open, message_success, filteredproducts, open, product, orderBy, order} = this.state;
        if (this.state.new) {
         // showModal = <ProductForm edit={false} onHandleSubmit={this.updateState}/>
         showModal = <MidModal >
@@ -278,8 +277,16 @@
                             </Alert>
                           </Snackbar>
            }
-       const { paginator } = this.state;
-
+           if(filteredproducts.length === 0){
+                     paginator =  <div>{''}</div>
+                   }else{
+                     paginator = <Paginator
+                     lenght={this.state.page_lenght}
+                     perPageChange= {this.perPageChange}
+                     pageChange ={this.pageChange}
+                     page= {this.state.page}
+                     />
+                   }
         return (
          <div className='card-body'>
 
@@ -307,7 +314,6 @@
                                          className="textField" variant="outlined"/>}
                                       />
                                       </h2>
-                                      {console.log(this.state.branch_id)}
                              <TableContainer component={Paper}>
                            <Table aria-label="simple table" option={{search: true}}>
                              <TableHead>
@@ -362,12 +368,8 @@
                              {this.renderList()}
                            </Table>
                          </TableContainer>
-                         <Paginator
-                           lenght={this.state.page_lenght}
-                           perPageChange= {this.perPageChange}
-                           pageChange ={this.pageChange}
-                           page= {this.state.page}
-                           />
+
+                           {paginator}
                            {showModal}
                            {showDialogDestroy}
                            {showSnack}
@@ -381,6 +383,18 @@
       //       this.setState({search: event.target.value})
       //     };
         renderList(){
+          if(this.state.filteredproducts.length === 0){
+      return(
+        <TableBody>
+        <TableRow>
+          <TableCell>{' '}</TableCell>
+          <TableCell>{'No contiene datos'}</TableCell>
+          <TableCell>{' '}</TableCell>
+          <TableCell>{''}</TableCell>
+          </TableRow>
+          </TableBody>
+      )
+    }else{
           return this.state.filteredproducts.map((data)=>{
             return(
           <TableBody key={data.product_id}>
@@ -414,7 +428,7 @@
 
           </TableBody>
         )})}
-
+}
     }
 
 

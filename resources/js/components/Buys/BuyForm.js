@@ -13,12 +13,20 @@ import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
 import ProductForm from '../Products/ProductForm';
 import ProviderForm from '../Providers/ProviderForm';
 import validator from'../validator/validator';
+import MaskedInput from 'react-text-mask';
+import Input from '@material-ui/core/Input';
+import PropTypes from "prop-types";
 
 const styles = theme => ({
   modal: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
   },
   table: {
     minWidth: 700,
@@ -38,6 +46,41 @@ const styles = theme => ({
   }
 });
 
+function TextMaskCustom(props) {
+  const { inputRef, ...other } = props;
+
+  return (
+    <MaskedInput
+      {...other}
+      ref={(ref) => {
+        inputRef(ref ? ref.inputElement : null);
+      }}
+      mask={[
+        "(",
+        /[1-9]/,
+        /\d/,
+        /\d/,
+        ")",
+        " ",
+        /\d/,
+        /\d/,
+        /\d/,
+        "-",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/
+      ]}
+      placeholderChar={"\u2000"}
+      showMask
+    />
+  );
+}
+
+TextMaskCustom.propTypes = {
+  inputRef: PropTypes.func.isRequired
+};
+
  class BuyForm extends Component  {
 
   constructor (props) {
@@ -46,6 +89,7 @@ const styles = theme => ({
       snack_open: false,
       message_success: '',
       open: true,
+      values: [],
       setOpen: true,
       buy_id:0,
       buy_date:'',
@@ -125,6 +169,13 @@ const styles = theme => ({
     this.selectsChange= this.selectsChange.bind(this);
     this.closeSnack = this.closeSnack.bind(this);
     this.openSnack = this.openSnack.bind(this);
+
+     handleChange = (event) => {
+      this.setState({
+        ...values,
+        [event.target.name]: event.target.value
+      });
+    };
 
   }
 
@@ -454,6 +505,13 @@ if (this.state.snack_open){
                       error={this.state.validator.buy_invoice_number.error}
                       helperText={this.state.validator.buy_invoice_number.message}
                     />
+                     <Input
+          value={values.textmask}
+          onChange={handleChange}
+          name="textmask"
+          id="formatted-text-mask-input"
+          inputComponent={TextMaskCustom}
+        />
                 </Grid>
                 </Grid>
 
