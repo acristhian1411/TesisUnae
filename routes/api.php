@@ -25,6 +25,13 @@ Route::post('prod_transfers/', 'ProductTransfer\ProductTransferController@store'
 Route::put('prod_transfers/{id}','ProductTransfer\ProductTransferController@update');
 Route::delete('prod_transfers/{id}','ProductTransfer\ProductTransferController@destroy');
 
+//rutas de Tipo de contacto
+Route::get('contact_types/', 'ContactType\ContactTypeController@index');
+Route::get('contact_types/{id}', 'ContactType\ContactTypeController@show');
+Route::get('contact_types/search/{req}', 'ContactType\ContactTypeController@search');
+Route::post('contact_types/', 'ContactType\ContactTypeController@store');
+Route::put('contact_types/{id}','ContactType\ContactTypeController@update');
+Route::delete('contact_types/{id}','ContactType\ContactTypeController@destroy');
 
 //rutas de Compras
 Route::get('buys/', 'Buy\BuyController@index');
