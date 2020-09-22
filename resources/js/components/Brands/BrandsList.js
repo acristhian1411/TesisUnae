@@ -225,9 +225,10 @@
 
       render () {
         var showModal;
+        var paginator;
         var showDialogDestroy;
         var showSnack;
-        const {snack_open, message_success, open, brand, orderBy, order} = this.state;
+        const {snack_open, message_success, filteredbrands, open, brand, orderBy, order} = this.state;
        if (this.state.new) {
         // showModal = <BrandForm edit={false} onHandleSubmit={this.updateState}/>
         showModal = <MidModal >
@@ -256,8 +257,16 @@
                             </Alert>
                           </Snackbar>
            }
-       const { paginator } = this.state;
-
+           if(filteredbrands.length === 0){
+                     paginator =  <div>{''}</div>
+                   }else{
+                     paginator = <Paginator
+                     lenght={this.state.page_lenght}
+                     perPageChange= {this.perPageChange}
+                     pageChange ={this.pageChange}
+                     page= {this.state.page}
+                     />
+                   }
         return (
          <div className='card-body'>
 
@@ -287,45 +296,13 @@
                              {this.renderList()}
                            </Table>
                          </TableContainer>
-                         <Paginator
-                           lenght={this.state.page_lenght}
-                           perPageChange= {this.perPageChange}
-                           pageChange ={this.pageChange}
-                           page= {this.state.page}
-                           />
+
+                         {paginator}
                            {showModal}
                            {showDialogDestroy}
                            {showSnack}
                            <br/>
-                           {/*<InputLabel id="demo-simple-select-helper-label">Filas por página:</InputLabel><Select
-                           labelId="label"
-                           id="select"
-                           value={this.state.rowsPerPage}
-                           onChange={this.handleChangeSelect}
-                           >
-                           <MenuItem value="5">5</MenuItem>
-                             <MenuItem value="10">10</MenuItem>
-                             <MenuItem value="15">15</MenuItem>
-                           </Select>
 
-                           <MobileStepper
-                            steps={paginator.last_page}
-                            position="static"
-                            variant="text"
-                            activeStep={this.state.prevActiveStep - 1}
-                            nextButton={
-                              <Button size="small" onClick={this.handleNext} disabled={this.state.prevActiveStep === paginator.last_page}>
-                                Siguiente
-                                 <KeyboardArrowRight />
-                              </Button>
-                            }
-                            backButton={
-                              <Button size="small" onClick={this.handleBack} disabled={this.state.prevActiveStep === 1}>
-                                 <KeyboardArrowLeft />
-                                Anterior
-                              </Button>
-                            }
-                           />*/}
                   </div>
         )
       }
@@ -334,6 +311,18 @@
             this.setState({search: event.target.value})
           };
         renderList(){
+          if(this.state.filteredbrands.length === 0){
+      return(
+        <TableBody>
+        <TableRow>
+          <TableCell>{' '}</TableCell>
+          <TableCell>{'No contiene datos'}</TableCell>
+          <TableCell>{' '}</TableCell>
+          <TableCell>{''}</TableCell>
+          </TableRow>
+          </TableBody>
+      )
+    }else{
           return this.state.filteredbrands.map((data)=>{
             return(
           <TableBody key={data.brand_id}>
@@ -356,7 +345,7 @@
 
           </TableBody>
         )})}
-
+}
     }
 
 

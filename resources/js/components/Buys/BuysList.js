@@ -224,10 +224,11 @@
       }
 
       render () {
+        var paginator;
         var showModal;
         var showDialogDestroy;
         var showSnack;
-        const {snack_open, message_success, open, buy, orderBy, order} = this.state;
+        const {snack_open, message_success, filteredbuys, open, buy, orderBy, order} = this.state;
        if (this.state.new) {
         // showModal = <BuyForm edit={false} onHandleSubmit={this.updateState}/>
         showModal = <MidModal >
@@ -256,8 +257,16 @@
                             </Alert>
                           </Snackbar>
            }
-       const { paginator } = this.state;
-
+           if(filteredbuys.length === 0){
+                     paginator =  <div>{''}</div>
+                   }else{
+                     paginator = <Paginator
+                     lenght={this.state.page_lenght}
+                     perPageChange= {this.perPageChange}
+                     pageChange ={this.pageChange}
+                     page= {this.state.page}
+                     />
+                   }
         return (
          <div className='card-body'>
 
@@ -308,12 +317,8 @@
                              {this.renderList()}
                            </Table>
                          </TableContainer>
-                         <Paginator
-                           lenght={this.state.page_lenght}
-                           perPageChange= {this.perPageChange}
-                           pageChange ={this.pageChange}
-                           page= {this.state.page}
-                           />
+
+                         {paginator}
                            {showModal}
                            {showDialogDestroy}
                            {showSnack}
@@ -327,6 +332,18 @@
             this.setState({search: event.target.value})
           };
         renderList(){
+          if(this.state.filteredbuys.length === 0){
+      return(
+        <TableBody>
+        <TableRow>
+          <TableCell>{' '}</TableCell>
+          <TableCell>{'No contiene datos'}</TableCell>
+          <TableCell>{' '}</TableCell>
+          <TableCell>{''}</TableCell>
+          </TableRow>
+          </TableBody>
+      )
+    }else{
           return this.state.filteredbuys.map((data)=>{
             return(
           <TableBody key={data.buy_id}>
@@ -361,7 +378,7 @@
 
           </TableBody>
         )})}
-
+}
     }
 
 

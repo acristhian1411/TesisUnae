@@ -224,10 +224,11 @@
       }
 
       render () {
+        var paginator;
         var showModal;
         var showDialogDestroy;
         var showSnack;
-        const {snack_open, message_success, open, provider, orderBy, order} = this.state;
+        const {snack_open, message_success, filteredproviders, open, provider, orderBy, order} = this.state;
        if (this.state.new) {
         // showModal = <ProviderForm edit={false} onHandleSubmit={this.updateState}/>
         showModal = <MidModal >
@@ -256,8 +257,16 @@
                             </Alert>
                           </Snackbar>
            }
-       const { paginator } = this.state;
-
+           if(filteredproviders.length === 0){
+                     paginator =  <div>{''}</div>
+                   }else{
+                     paginator = <Paginator
+                     lenght={this.state.page_lenght}
+                     perPageChange= {this.perPageChange}
+                     pageChange ={this.pageChange}
+                     page= {this.state.page}
+                     />
+                   }
         return (
          <div className='card-body'>
 
@@ -296,12 +305,8 @@
                              {this.renderList()}
                            </Table>
                          </TableContainer>
-                         <Paginator
-                           lenght={this.state.page_lenght}
-                           perPageChange= {this.perPageChange}
-                           pageChange ={this.pageChange}
-                           page= {this.state.page}
-                           />
+
+                         {paginator}
                            {showModal}
                            {showDialogDestroy}
                            {showSnack}
@@ -315,6 +320,18 @@
             this.setState({search: event.target.value})
           };
         renderList(){
+          if(this.state.filteredproviders.length === 0){
+      return(
+        <TableBody>
+        <TableRow>
+          <TableCell>{' '}</TableCell>
+          <TableCell>{'No contiene datos'}</TableCell>
+          <TableCell>{' '}</TableCell>
+          <TableCell>{''}</TableCell>
+          </TableRow>
+          </TableBody>
+      )
+    }else{
           return this.state.filteredproviders.map((data)=>{
             return(
           <TableBody key={data.person_id}>
@@ -344,7 +361,7 @@
               </TableRow>
 
           </TableBody>
-        )})}
+        )})}}
 
     }
 

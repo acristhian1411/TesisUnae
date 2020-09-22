@@ -269,6 +269,15 @@ import SettingsIcon from '@material-ui/icons/Settings';
       </ListItem>
       </Link>
 
+      <Link className='navbar-brand' to='/ciudades'>
+      <ListItem button >
+       <ListItemIcon>
+        {<ListIcon />}
+        </ListItemIcon>
+        Ciudades
+      </ListItem>
+      </Link>
+
       </List>
       </Collapse>
 
