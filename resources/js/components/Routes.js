@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 // import React, { Component, lazy, Suspense} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //
+import WorkplacesList from './Workplaces/WorkplacesList';
 import ContactTypesList from './ContactTypes/ContactTypesList';
 import AppointmentsList from './Appointments/AppointmentsList';
 import BrandsList from './Brands/BrandsList';
@@ -23,6 +24,7 @@ class Routes extends Component {
 
         <div>
           <Switch>
+          <Route exact path='/lugares_trabajo' component={WorkplacesList} />
           <Route exact path='/tipo_contacto' component={ContactTypesList} />
           <Route exact path='/compras' component={BuysList} />
           <Route exact path='/productos' component={ProductsList} />

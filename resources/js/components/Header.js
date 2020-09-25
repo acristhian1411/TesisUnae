@@ -278,6 +278,24 @@ import SettingsIcon from '@material-ui/icons/Settings';
       </ListItem>
       </Link>
 
+      <Link className='navbar-brand' to='/barrios'>
+      <ListItem button >
+       <ListItemIcon>
+        {<ListIcon />}
+        </ListItemIcon>
+        Barrios
+      </ListItem>
+      </Link>
+
+      <Link className='navbar-brand' to='/lugares_trabajo'>
+      <ListItem button >
+       <ListItemIcon>
+        {<ListIcon />}
+        </ListItemIcon>
+        Lugares de trabajo
+      </ListItem>
+      </Link>
+
       </List>
       </Collapse>
 

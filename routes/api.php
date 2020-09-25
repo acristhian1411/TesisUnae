@@ -17,6 +17,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//rutas de lugares de trabajo
+Route::get('workplaces/', 'Workplace\WorkplaceController@index');
+Route::get('workplaces/{id}', 'Workplace\WorkplaceController@show');
+Route::get('workplaces/search/{req}', 'Workplace\WorkplaceController@search');
+Route::post('workplaces/', 'Workplace\WorkplaceController@store');
+Route::put('workplaces/{id}','Workplace\WorkplaceController@update');
+Route::delete('workplaces/{id}','Workplace\WorkplaceController@destroy');
+
+
 //rutas de Transferencias de productos
 Route::get('prod_transfers/', 'ProductTransfer\ProductTransferController@index');
 Route::get('prod_transfers/{id}', 'ProductTransfer\ProductTransferController@show');
