@@ -270,7 +270,7 @@
         return (
          <div className='card-body'>
 
-                             <h2 align='center'>Ciudades<TextField id="outlined-search" label="Buscar" type="search" variant="outlined" onChange={this.search} /></h2>
+                             <h2 align='center'>Tipos de contacto`<TextField id="outlined-search" label="Buscar" type="search" variant="outlined" onChange={this.search} /></h2>
                              <hr />
                              <TableContainer component={Paper}>
                            <Table aria-label="simple table" option={{search: true}}>

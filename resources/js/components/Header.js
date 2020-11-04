@@ -296,6 +296,15 @@ import SettingsIcon from '@material-ui/icons/Settings';
       </ListItem>
       </Link>
 
+      <Link className='navbar-brand' to='/tipo_contacto'>
+      <ListItem button >
+       <ListItemIcon>
+        {<ListIcon />}
+        </ListItemIcon>
+        Tipos de contacto
+      </ListItem>
+      </Link>
+
       </List>
       </Collapse>
 
